@@ -26,7 +26,7 @@ exec 1>&2
 sum=0
 
 # git diff-index --name-only --name-status
-for file in $(git diff-index --name-only $against --);  do
+for file in $(git diff --staged --name-only $against --);  do
 	if [ -f "$file" ]; then
 		if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.vue ]]; then
 			echo "eslint: $file"
